@@ -1,5 +1,8 @@
 package com.jovenulip.sbassignment.di;
 
+import com.jovenulip.sbassignment.Constants;
+import com.jovenulip.sbassignment.data.api.UserApi;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
@@ -41,8 +44,14 @@ public class AppModule {
     Retrofit provideOfferRetrofit(OkHttpClient okHttpClient, GsonConverterFactory gsonConverterFactory) {
         return new Retrofit.Builder()
                 .addConverterFactory(gsonConverterFactory)
-                .baseUrl("https://api.github.com/")
+                .baseUrl(Constants.BASE_URL)
                 .client(okHttpClient)
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    UserApi provideAccountApi(Retrofit retrofit) {
+        return retrofit.create(UserApi.class);
     }
 }

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">SbAssignment</string>
+    <string name="app_name">MVP</string>
+    <string name="users">Users</string>
+    <string name="staff">STAFF</string>
 </resources>
