@@ -3,12 +3,19 @@ package com.jovenulip.sbassignment.detail;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.jovenulip.sbassignment.Constants;
 import com.jovenulip.sbassignment.R;
@@ -22,6 +29,10 @@ import butterknife.ButterKnife;
 public class DetailActivity extends AppCompatActivity implements DetailContract.View {
     public static final String TAG = DetailActivity.class.getSimpleName();
 
+    @BindView(R.id.main)
+    LinearLayout vwMain;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.name)
     TextView txtName;
     @BindView(R.id.bio)
@@ -45,9 +56,28 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
 
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setHomeAsUpIndicator(R.drawable.baseline_close_black_24);
+        }
+
         String username = getIntent().getStringExtra(Constants.USER_NAME);
         mPresenter = new DetailPresenter(this);
         mPresenter.getUserDetail(username);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return false;
     }
 
     @Override
@@ -101,4 +131,15 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
         }
     }
 
+    @Override
+    public void showError() {
+        Snackbar.make(vwMain, getString(R.string.error_something_wrong), Snackbar.LENGTH_LONG)
+                .setActionTextColor(ContextCompat.getColor(this, R.color.gray))
+                .setAction(R.string.dismiss, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                })
+                .show();
+    }
 }

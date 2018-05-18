@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">MVP</string>
+    <string name="app_name">Github Users</string>
     <string name="users">Users</string>
     <string name="staff">STAFF</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="error_something_wrong">Something went wrong! Please check your internet connection.</string>
 </resources>

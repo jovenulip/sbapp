@@ -31,12 +31,14 @@ public class DetailPresenter implements DetailContract.Presenter {
                 if (response.isSuccessful()) {
                     UserDetail userDetail = response.body();
                     mView.showUserDetail(userDetail);
+                } else {
+                    mView.showError();
                 }
             }
 
             @Override
             public void onFailure(Call<UserDetail> call, Throwable t) {
-
+                mView.showError();
             }
         });
     }

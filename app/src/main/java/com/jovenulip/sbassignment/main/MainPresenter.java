@@ -44,6 +44,8 @@ public class MainPresenter implements MainContract.Presenter {
                         mView.addToList(list);
                     }
 
+                }else{
+                    mView.showError();
                 }
 
                 Headers headers = response.headers();
@@ -62,7 +64,7 @@ public class MainPresenter implements MainContract.Presenter {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-
+                mView.showError();
             }
         });
 

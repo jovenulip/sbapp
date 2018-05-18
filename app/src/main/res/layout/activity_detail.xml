@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:background="@android:color/white"
     tools:context=".detail.DetailActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white" />
 
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="@null"
         android:src="@mipmap/ic_launcher" />
 
@@ -35,13 +42,17 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="20dp"
-        android:background="@color/gray" />
+        android:background="@color/gray"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
 
         <ImageView
             android:id="@+id/icon"
@@ -95,6 +106,8 @@
         android:drawableStart="@drawable/baseline_location_on_black_24"
         android:ellipsize="end"
         android:maxLines="1"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
@@ -109,6 +122,8 @@
         android:ellipsize="end"
         android:linksClickable="true"
         android:maxLines="1"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
         android:textColor="@color/blue"
         android:textColorLink="@color/blue"
         android:textSize="16sp" />

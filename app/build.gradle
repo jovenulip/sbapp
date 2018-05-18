@@ -40,6 +40,7 @@ dependencies {
     //Support
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
     implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
 
     //Square
