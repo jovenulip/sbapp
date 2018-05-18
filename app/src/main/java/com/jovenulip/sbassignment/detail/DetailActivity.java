@@ -87,15 +87,10 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
             checkNullSetText(txtBio, detail.bio);
             checkNullSetText(txtLogin, detail.login);
             checkNullSetText(txtLocation, detail.location);
+            checkNullSetText(txtBlog, detail.blog);
 
             if (detail.site_admin) {
                 txtAdmin.setVisibility(View.VISIBLE);
-            }
-
-            if (detail.blog != null) {
-                txtBlog.setText(detail.blog);
-            } else {
-                txtBlog.setVisibility(View.GONE);
             }
 
             if (detail.avatar_url != null) {
@@ -119,12 +114,11 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
                         });
             }
 
-
         }
     }
 
     private void checkNullSetText(TextView textView, String data) {
-        if (data != null) {
+        if (data != null && !data.isEmpty()) {
             textView.setText(data);
         } else {
             textView.setVisibility(View.GONE);
