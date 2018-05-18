@@ -82,6 +82,18 @@ public class UserListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             super(itemView);
             ButterKnife.bind(this, itemView);
 
+            vwMain.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            onAdapterListener.onClickItem(getAdapterPosition());
+                        }
+                    }, 200);
+                }
+            });
+
         }
     }
 

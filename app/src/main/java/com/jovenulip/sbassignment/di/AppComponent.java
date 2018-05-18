@@ -1,5 +1,6 @@
 package com.jovenulip.sbassignment.di;
 
+import com.jovenulip.sbassignment.detail.DetailPresenter;
 import com.jovenulip.sbassignment.main.MainPresenter;
 
 import javax.inject.Singleton;
@@ -11,5 +12,7 @@ import dagger.Component;
 
 public interface AppComponent {
     void inject(MainPresenter presenter);
+
+    void inject(DetailPresenter presenter);
 }
 

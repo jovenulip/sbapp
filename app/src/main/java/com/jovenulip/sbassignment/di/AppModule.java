@@ -1,5 +1,6 @@
 package com.jovenulip.sbassignment.di;
 
+import com.jovenulip.sbassignment.BuildConfig;
 import com.jovenulip.sbassignment.Constants;
 import com.jovenulip.sbassignment.data.api.UserApi;
 
@@ -44,7 +45,7 @@ public class AppModule {
     Retrofit provideOfferRetrofit(OkHttpClient okHttpClient, GsonConverterFactory gsonConverterFactory) {
         return new Retrofit.Builder()
                 .addConverterFactory(gsonConverterFactory)
-                .baseUrl(Constants.BASE_URL)
+                .baseUrl(BuildConfig.BASE_URL)
                 .client(okHttpClient)
                 .build();
     }

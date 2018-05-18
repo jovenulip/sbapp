@@ -14,6 +14,6 @@ public interface UserApi {
     @GET("users")
     Call<List<User>> getUsers(@Query("access_token") String token, @Query("since") String page, @Query("per_page") String perPage);
 
-    @GET("users")
-    Call<UserDetail> getUserDetail(@Query("access_token") String token, @Path("user") String user);
+    @GET("users/{user}")
+    Call<UserDetail> getUserDetail(@Path("user") String user, @Query("access_token") String token);
 }

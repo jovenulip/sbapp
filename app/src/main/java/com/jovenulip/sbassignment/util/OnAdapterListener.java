@@ -8,5 +8,5 @@ import java.util.List;
 public interface OnAdapterListener {
     void onLoadMore();
 
-    void onClickItem(int pos, List<Pair<View, String>> pair);
+    void onClickItem(int pos);
 }

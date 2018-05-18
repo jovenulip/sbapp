@@ -2,6 +2,7 @@ package com.jovenulip.sbassignment.main;
 
 import android.net.Uri;
 
+import com.jovenulip.sbassignment.BuildConfig;
 import com.jovenulip.sbassignment.data.User;
 import com.jovenulip.sbassignment.data.api.UserApi;
 import com.jovenulip.sbassignment.di.Injector;
@@ -29,7 +30,7 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void populateList(final String page) {
-        Call<List<User>> call = mUserApi.getUsers("7ee0ca6e315281fbe43de91fb4383b6dcad9d688", page, "20");
+        Call<List<User>> call = mUserApi.getUsers(BuildConfig.ACCESS_TOKEN, page, "20");
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {

@@ -16,6 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "release"
+    productFlavors {
+        production {
+            applicationId "com.jovenulip.sbassignment"
+            buildConfigField 'String', 'BASE_URL', '"https://api.github.com/"'
+            buildConfigField 'String', 'ACCESS_TOKEN', "\"${token}\""
+        }
+    }
 }
 
 ext {
